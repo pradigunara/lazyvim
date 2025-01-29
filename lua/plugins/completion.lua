@@ -27,6 +27,27 @@ return {
           model = "deepseek-chat",
           temperature = 0,
         },
+        deepinfra = {
+          __inherited_from = "openai",
+          api_key_name = "DEEPINFRA_API_KEY",
+          endpoint = "https://api.deepinfra.com/v1/openai",
+          model = "deepseek-ai/DeepSeek-V3",
+          temperature = 0,
+        },
+        deepinfra_r1 = {
+          __inherited_from = "openai",
+          api_key_name = "DEEPINFRA_API_KEY",
+          endpoint = "https://api.deepinfra.com/v1/openai",
+          model = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
+          temperature = 0.5,
+        },
+        groq = {
+          __inherited_from = "openai",
+          api_key_name = "GROQ_API_KEY",
+          endpoint = "https://api.groq.com/openai/v1",
+          model = "deepseek-r1-distill-llama-70b",
+          temperature = 0.5,
+        },
       },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
