@@ -15,7 +15,10 @@ return {
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      provider = "deepseek",
+      windows = {
+        width = 50,
+      },
+      provider = "groq",
       openai = {
         model = "gpt-4o-mini",
       },
