@@ -22,6 +22,10 @@ return {
       openai = {
         model = "gpt-4o-mini",
       },
+      gemini = {
+        model = "gemini-2.0-flash-thinking-exp",
+        temperature = 0.5,
+      },
       vendors = {
         deepseek = {
           __inherited_from = "openai",
