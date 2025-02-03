@@ -18,13 +18,13 @@ return {
       windows = {
         width = 50,
       },
-      provider = "groq",
+      provider = "gemini",
       openai = {
         model = "gpt-4o-mini",
       },
       gemini = {
         model = "gemini-2.0-flash-thinking-exp",
-        temperature = 0.5,
+        temperature = 0.1,
       },
       vendors = {
         deepseek = {
