@@ -10,6 +10,15 @@ return {
     },
   },
   {
+    "folke/which-key.nvim",
+    optional = true,
+    opts = {
+      spec = {
+        { "<leader>a", group = "ai", icon = "" },
+      },
+    },
+  },
+  {
     "yetone/avante.nvim",
     event = "VeryLazy",
     lazy = false,
