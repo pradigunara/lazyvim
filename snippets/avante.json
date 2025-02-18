@@ -1,0 +1,19 @@
+{
+  "Distilled Debugging": {
+    "prefix": "prompt-debug",
+    "body": [
+      "Reflect on 5-7 different possible sources of the problem, distill those down to 1-2 most likely sources, and then add logs to validate your assumptions before we move onto implementing the actual code fix."
+    ]
+  },
+  "Thinking Template": {
+    "prefix": "prompt-thinking",
+    "body": [
+      "goal: I want a list of japanese restaurant within 3km of my house",
+      "goal2: The japanese restaurant must have a rating of 5 in google maps\n",
+      "return: Return the list as object in javascript array, with key 'restaurant_name' and 'address'\n",
+      "warning: Be careful that the restaurant must still be open at 7pm\n",
+      "---\n",
+      "context: I really love japanese food, especially sushi and ramen, etc etc"
+    ]
+  }
+}
