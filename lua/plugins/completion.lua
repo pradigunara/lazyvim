@@ -22,10 +22,14 @@ return {
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
+      provider = "gemini",
+      cursor_applying_provider = "groq_apply",
+      behaviour = {
+        enable_cursor_planning_mode = true,
+      },
       windows = {
         width = 50,
       },
-      provider = "gemini",
       openai = {
         model = "gpt-4o-mini",
       },
@@ -41,26 +45,19 @@ return {
           model = "deepseek-chat",
           temperature = 0,
         },
-        deepinfra = {
-          __inherited_from = "openai",
-          api_key_name = "DEEPINFRA_API_KEY",
-          endpoint = "https://api.deepinfra.com/v1/openai",
-          model = "deepseek-ai/DeepSeek-V3",
-          temperature = 0,
-        },
-        deepinfra_r1 = {
-          __inherited_from = "openai",
-          api_key_name = "DEEPINFRA_API_KEY",
-          endpoint = "https://api.deepinfra.com/v1/openai",
-          model = "deepseek-ai/DeepSeek-R1-Distill-Llama-70B",
-          temperature = 0.5,
-        },
         groq = {
           __inherited_from = "openai",
           api_key_name = "GROQ_API_KEY",
           endpoint = "https://api.groq.com/openai/v1",
           model = "deepseek-r1-distill-llama-70b",
           temperature = 0.5,
+        },
+        groq_apply = {
+          __inherited_from = "openai",
+          api_key_name = "GROQ_API_KEY",
+          endpoint = "https://api.groq.com/openai/v1",
+          model = "llama-3.3-70b-versatile",
+          max_completion_tokens = 32768,
         },
       },
     },
@@ -75,23 +72,23 @@ return {
       -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
       -- "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       -- "zbirenbaum/copilot.lua", -- for providers='copilot'
-      -- {
-      --   -- support for image pasting
-      --   "HakonHarnes/img-clip.nvim",
-      --   event = "VeryLazy",
-      --   opts = {
-      --     -- recommended settings
-      --     default = {
-      --       embed_image_as_base64 = false,
-      --       prompt_for_file_name = false,
-      --       drag_and_drop = {
-      --         insert_mode = true,
-      --       },
-      --       -- required for Windows users
-      --       use_absolute_path = true,
-      --     },
-      --   },
-      -- },
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+            -- required for Windows users
+            -- use_absolute_path = true,
+          },
+        },
+      },
       -- {
       --   -- Make sure to set this up properly if you have lazy=true
       --   "MeanderingProgrammer/render-markdown.nvim",
