@@ -22,10 +22,13 @@ return {
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      provider = "gemini",
+      provider = "fireworks_deepseek",
       cursor_applying_provider = "groq_apply",
+      web_search_engine = {
+        provider = "brave",
+      },
       behaviour = {
-        enable_cursor_planning_mode = true,
+        enable_cursor_planning_mode = false,
       },
       windows = {
         width = 50,
@@ -44,6 +47,15 @@ return {
           endpoint = "https://api.deepseek.com",
           model = "deepseek-chat",
           temperature = 0,
+        },
+        fireworks_deepseek = {
+          __inherited_from = "openai",
+          api_key_name = "FIREWORKS_API_KEY",
+          endpoint = "https://api.fireworks.ai/inference/v1",
+          model = "accounts/fireworks/models/deepseek-v3-0324",
+          temperature = 0,
+          max_completion_tokens = 20480,
+          disable_tools = true,
         },
         groq = {
           __inherited_from = "openai",
