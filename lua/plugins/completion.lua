@@ -22,13 +22,13 @@ return {
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      provider = "fireworks_deepseek",
+      provider = "gemini",
       cursor_applying_provider = "groq_apply",
       web_search_engine = {
         provider = "brave",
       },
       behaviour = {
-        enable_cursor_planning_mode = false,
+        enable_cursor_planning_mode = true,
       },
       windows = {
         width = 50,
@@ -68,8 +68,10 @@ return {
           __inherited_from = "openai",
           api_key_name = "GROQ_API_KEY",
           endpoint = "https://api.groq.com/openai/v1",
-          model = "llama-3.3-70b-versatile",
-          max_completion_tokens = 32768,
+          -- model = "llama-3.3-70b-versatile",
+          -- max_completion_tokens = 32768,
+          model = "llama-3.1-8b-instant",
+          max_completion_tokens = 8192,
         },
       },
     },
