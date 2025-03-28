@@ -39,6 +39,11 @@ return {
       gemini = {
         model = "gemini-2.0-pro-exp",
         temperature = 0.1,
+        tools = {
+          {
+            google_search = vim.empty_dict(),
+          },
+        },
       },
       vendors = {
         deepseek = {
