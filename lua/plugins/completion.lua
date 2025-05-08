@@ -23,12 +23,8 @@ return {
     version = false, -- set this if you want to always pull the latest change
     opts = {
       provider = "gemini",
-      cursor_applying_provider = "groq_apply",
       web_search_engine = {
         provider = "brave",
-      },
-      behaviour = {
-        enable_cursor_planning_mode = true,
       },
       windows = {
         width = 50,
@@ -37,29 +33,38 @@ return {
         model = "gpt-4o-mini",
       },
       gemini = {
-        model = "gemini-2.0-pro-exp",
+        model = "gemini-2.5-flash-preview-04-17",
         temperature = 0.1,
-        tools = {
-          {
-            google_search = vim.empty_dict(),
-          },
-        },
       },
       vendors = {
         openrouter = {
           __inherited_from = "openai",
           api_key_name = "OPENROUTER_API_KEY",
           endpoint = "https://openrouter.ai/api/v1",
-          model = "meta-llama/llama-4-scout",
+          model = "google/gemini-2.5-flash-preview",
           temperature = 0.1,
-          -- provider = {
-          --   order = {
-          --     "Lambda",
-          --     "Groq",
-          --   },
-          -- },
         },
-        groq_apply = {
+        gemini_pro = {
+          __inherited_from = "gemini",
+          model = "gemini-2.5-pro-preview-05-06",
+        },
+        or_sonnet = {
+          __inherited_from = "openai",
+          api_key_name = "OPENROUTER_API_KEY",
+          endpoint = "https://openrouter.ai/api/v1",
+          model = "anthropic/claude-3.7-sonnet",
+          provider = { order = { "Anthropic" } },
+          temperature = 0.1,
+        },
+        or_deepseek = {
+          __inherited_from = "openai",
+          api_key_name = "OPENROUTER_API_KEY",
+          endpoint = "https://openrouter.ai/api/v1",
+          model = "deepseek/deepseek-chat-v3-0324",
+          provider = { order = { "Lambda" } },
+          temperature = 0.1,
+        },
+        groq = {
           __inherited_from = "openai",
           api_key_name = "GROQ_API_KEY",
           endpoint = "https://api.groq.com/openai/v1",
