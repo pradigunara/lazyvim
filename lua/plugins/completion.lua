@@ -48,6 +48,20 @@ return {
           __inherited_from = "gemini",
           model = "gemini-2.5-pro-preview-05-06",
         },
+        or_o4_mini_high = {
+          __inherited_from = "openai",
+          api_key_name = "OPENROUTER_API_KEY",
+          endpoint = "https://openrouter.ai/api/v1",
+          model = "openai/o4-mini-high",
+          temperature = 0.1,
+        },
+        or_o4_mini_low = {
+          __inherited_from = "openai",
+          api_key_name = "OPENROUTER_API_KEY",
+          endpoint = "https://openrouter.ai/api/v1",
+          model = "openai/o4-mini",
+          temperature = 0.1,
+        },
         or_sonnet = {
           __inherited_from = "openai",
           api_key_name = "OPENROUTER_API_KEY",

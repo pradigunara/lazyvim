@@ -15,5 +15,15 @@
       "---\n",
       "context: I really love japanese food, especially sushi and ramen, etc etc"
     ]
+  },
+  "Plan Template": {
+    "prefix": "prompt-planning",
+    "body": [
+      "- do not execute any code changes directly yet. you're the planner, another model will implement the changes for you.",
+      "- create the refactor plan in `plan.md` file at project root.",
+      "- give granular example to be followed by the implementing model, but still easily human readable.",
+      "- add code snippets whenever suitable.",
+      "- re-check the plan when you're done editing it."
+    ]
   }
 }
