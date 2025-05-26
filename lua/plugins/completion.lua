@@ -22,69 +22,33 @@ return {
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      provider = "gemini",
+      provider = "groq",
       web_search_engine = {
         provider = "brave",
       },
       windows = {
         width = 50,
       },
-      openai = {
-        model = "gpt-4o-mini",
-      },
       gemini = {
-        model = "gemini-2.5-flash-preview-04-17",
+        model = "gemini-2.5-flash-preview-05-20",
         temperature = 0.1,
       },
       vendors = {
-        openrouter = {
+        deepseek = {
           __inherited_from = "openai",
           api_key_name = "OPENROUTER_API_KEY",
           endpoint = "https://openrouter.ai/api/v1",
-          model = "google/gemini-2.5-flash-preview",
-          temperature = 0.1,
-        },
-        gemini_pro = {
-          __inherited_from = "gemini",
-          model = "gemini-2.5-pro-preview-05-06",
-        },
-        or_o4_mini_high = {
-          __inherited_from = "openai",
-          api_key_name = "OPENROUTER_API_KEY",
-          endpoint = "https://openrouter.ai/api/v1",
-          model = "openai/o4-mini-high",
-          temperature = 0.1,
-        },
-        or_o4_mini_low = {
-          __inherited_from = "openai",
-          api_key_name = "OPENROUTER_API_KEY",
-          endpoint = "https://openrouter.ai/api/v1",
-          model = "openai/o4-mini",
-          temperature = 0.1,
-        },
-        or_sonnet = {
-          __inherited_from = "openai",
-          api_key_name = "OPENROUTER_API_KEY",
-          endpoint = "https://openrouter.ai/api/v1",
-          model = "anthropic/claude-3.7-sonnet",
-          provider = { order = { "Anthropic" } },
-          temperature = 0.1,
-        },
-        or_deepseek = {
-          __inherited_from = "openai",
-          api_key_name = "OPENROUTER_API_KEY",
-          endpoint = "https://openrouter.ai/api/v1",
+
           model = "deepseek/deepseek-chat-v3-0324",
-          provider = { order = { "Lambda" } },
-          temperature = 0.1,
+          temperature = 0.5,
         },
         groq = {
           __inherited_from = "openai",
           api_key_name = "GROQ_API_KEY",
           endpoint = "https://api.groq.com/openai/v1",
-          model = "llama-3.3-70b-versatile",
-          max_completion_tokens = 32768,
-          temperature = 0.2,
+          model = "qwen/qwen3-32b",
+          temperature = 0.6,
+          max_completion_tokens = 40960,
         },
       },
     },
