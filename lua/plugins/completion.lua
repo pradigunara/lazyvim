@@ -1,13 +1,5 @@
 return {
   {
-    "saghen/blink.cmp",
-    opts = {
-      keymap = {
-        preset = "super-tab",
-      },
-    },
-  },
-  {
     "folke/which-key.nvim",
     optional = true,
     opts = {
@@ -22,33 +14,38 @@ return {
     lazy = false,
     version = false, -- set this if you want to always pull the latest change
     opts = {
-      provider = "groq",
+      provider = "gemini",
       web_search_engine = {
         provider = "brave",
       },
       windows = {
         width = 50,
       },
-      gemini = {
-        model = "gemini-2.5-flash-preview-05-20",
-        temperature = 0.1,
-      },
-      vendors = {
+      providers = {
+        gemini = {
+          model = "gemini-2.5-pro",
+          extra_request_body = {
+            temperature = 0.7,
+          },
+        },
         deepseek = {
           __inherited_from = "openai",
           api_key_name = "OPENROUTER_API_KEY",
           endpoint = "https://openrouter.ai/api/v1",
-
           model = "deepseek/deepseek-chat-v3-0324",
-          temperature = 0.5,
+          extra_request_body = {
+            temperature = 0.1,
+          },
         },
         groq = {
           __inherited_from = "openai",
           api_key_name = "GROQ_API_KEY",
           endpoint = "https://api.groq.com/openai/v1",
           model = "qwen/qwen3-32b",
-          temperature = 0.6,
-          max_completion_tokens = 40960,
+          extra_request_body = {
+            temperature = 0.6,
+            max_tokens = 40960,
+          },
         },
       },
     },
