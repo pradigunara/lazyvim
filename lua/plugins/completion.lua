@@ -34,7 +34,9 @@ return {
         provider = "brave",
       },
       windows = {
-        width = 50,
+        width = 60,
+        sidebar_header = { enabled = false },
+        input = { height = 10 },
       },
       providers = {
         gemini = {
@@ -43,23 +45,29 @@ return {
             temperature = 0.7,
           },
         },
-        deepseek = {
+        moonshot = {
+          endpoint = "https://api.moonshot.ai/v1",
+          model = "kimi-k2-0711-preview",
+          timeout = 30000,
+          extra_request_body = {
+            temperature = 0.7,
+            max_tokens = 128000,
+          },
+        },
+        kimi = {
           __inherited_from = "openai",
           api_key_name = "OPENROUTER_API_KEY",
           endpoint = "https://openrouter.ai/api/v1",
-          model = "deepseek/deepseek-chat-v3-0324",
-          extra_request_body = {
-            temperature = 0.1,
-          },
+          model = "@preset/kimi-k2",
         },
         groq = {
           __inherited_from = "openai",
           api_key_name = "GROQ_API_KEY",
           endpoint = "https://api.groq.com/openai/v1",
-          model = "qwen/qwen3-32b",
+          model = "moonshotai/kimi-k2-instruct",
           extra_request_body = {
-            temperature = 0.6,
-            max_tokens = 40960,
+            temperature = 0.7,
+            max_completion_tokens = 16384,
           },
         },
       },
@@ -107,11 +115,9 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
-    build = "bundled_build.lua", -- Bundles `mcp-hub` binary along with the neovim plugin
+    build = "volta install mcp-hub", -- Installs `mcp-hub` node binary globally
     config = function()
-      require("mcphub").setup({
-        use_bundled_binary = true, -- Use local `mcp-hub` binary
-      })
+      require("mcphub").setup()
     end,
   },
 }
