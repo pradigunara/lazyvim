@@ -29,7 +29,7 @@ return {
       end,
       -- ==============================
 
-      provider = "gemini",
+      provider = "chutes",
       web_search_engine = {
         provider = "brave",
       },
@@ -59,6 +59,42 @@ return {
           api_key_name = "OPENROUTER_API_KEY",
           endpoint = "https://openrouter.ai/api/v1",
           model = "@preset/kimi-k2",
+        },
+        qwen = {
+          __inherited_from = "openai",
+          api_key_name = "OPENROUTER_API_KEY",
+          endpoint = "https://openrouter.ai/api/v1",
+          model = "@preset/qwen-cerebras",
+        },
+        fireworks = {
+          __inherited_from = "openai",
+          endpoint = "https://api.fireworks.ai/inference/v1",
+          model = "accounts/fireworks/models/qwen3-235b-a22b-instruct-2507",
+          api_key_name = "FIREWORKS_API_KEY",
+          extra_request_body = {
+            temperature = 0.6,
+            max_tokens = 32768,
+          },
+        },
+        chutes = {
+          __inherited_from = "openai",
+          api_key_name = "CHUTES_API_KEY",
+          endpoint = "https://llm.chutes.ai/v1",
+          model = "zai-org/GLM-4.5-FP8",
+          extra_request_body = {
+            temperature = 0.6,
+            max_completion_tokens = 8192,
+          },
+        },
+        zai_glm45 = {
+          __inherited_from = "openai",
+          api_key_name = "ZAI_API_KEY",
+          endpoint = "https://api.z.ai/api/paas/v4",
+          model = "glm-4.5",
+          extra_request_body = {
+            temperature = 0.6,
+            max_tokens = 98304,
+          },
         },
         groq = {
           __inherited_from = "openai",
