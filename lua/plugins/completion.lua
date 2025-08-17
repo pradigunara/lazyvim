@@ -30,6 +30,10 @@ return {
       -- ==============================
 
       provider = "chutes",
+      -- mode = "legacy",
+      behaviour = {
+        -- enable_fastapply = true,
+      },
       web_search_engine = {
         provider = "brave",
       },
@@ -45,20 +49,8 @@ return {
             temperature = 0.7,
           },
         },
-        moonshot = {
-          endpoint = "https://api.moonshot.ai/v1",
-          model = "kimi-k2-0711-preview",
-          timeout = 30000,
-          extra_request_body = {
-            temperature = 0.7,
-            max_tokens = 128000,
-          },
-        },
-        kimi = {
-          __inherited_from = "openai",
-          api_key_name = "OPENROUTER_API_KEY",
-          endpoint = "https://openrouter.ai/api/v1",
-          model = "@preset/kimi-k2",
+        morph = {
+          model = "morph-v3-fast",
         },
         qwen = {
           __inherited_from = "openai",
@@ -66,24 +58,14 @@ return {
           endpoint = "https://openrouter.ai/api/v1",
           model = "@preset/qwen-cerebras",
         },
-        fireworks = {
-          __inherited_from = "openai",
-          endpoint = "https://api.fireworks.ai/inference/v1",
-          model = "accounts/fireworks/models/qwen3-235b-a22b-instruct-2507",
-          api_key_name = "FIREWORKS_API_KEY",
-          extra_request_body = {
-            temperature = 0.6,
-            max_tokens = 32768,
-          },
-        },
         chutes = {
           __inherited_from = "openai",
           api_key_name = "CHUTES_API_KEY",
           endpoint = "https://llm.chutes.ai/v1",
-          model = "zai-org/GLM-4.5-FP8",
+          model = "deepseek-ai/DeepSeek-V3.1",
           extra_request_body = {
             temperature = 0.6,
-            max_completion_tokens = 8192,
+            max_completion_tokens = 16384,
           },
         },
         zai_glm45 = {
@@ -91,6 +73,16 @@ return {
           api_key_name = "ZAI_API_KEY",
           endpoint = "https://api.z.ai/api/paas/v4",
           model = "glm-4.5",
+          extra_request_body = {
+            temperature = 0.6,
+            max_tokens = 98304,
+          },
+        },
+        zai_glm_air = {
+          __inherited_from = "openai",
+          api_key_name = "ZAI_API_KEY",
+          endpoint = "https://api.z.ai/api/paas/v4",
+          model = "glm-4.5-air",
           extra_request_body = {
             temperature = 0.6,
             max_tokens = 98304,

@@ -6,6 +6,7 @@ return {
         "gopls",
         "vtsls",
         "css-lsp",
+        "typescript-language-server",
       },
     },
   },
