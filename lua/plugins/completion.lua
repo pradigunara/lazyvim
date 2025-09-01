@@ -29,7 +29,7 @@ return {
       end,
       -- ==============================
 
-      provider = "chutes",
+      provider = "zai",
       -- mode = "legacy",
       behaviour = {
         -- enable_fastapply = true,
@@ -52,11 +52,11 @@ return {
         morph = {
           model = "morph-v3-fast",
         },
-        qwen = {
+        grokcode = {
           __inherited_from = "openai",
           api_key_name = "OPENROUTER_API_KEY",
           endpoint = "https://openrouter.ai/api/v1",
-          model = "@preset/qwen-cerebras",
+          model = "x-ai/grok-code-fast-1",
         },
         chutes = {
           __inherited_from = "openai",
@@ -68,21 +68,11 @@ return {
             max_completion_tokens = 16384,
           },
         },
-        zai_glm45 = {
-          __inherited_from = "openai",
+        zai = {
+          __inherited_from = "claude",
           api_key_name = "ZAI_API_KEY",
-          endpoint = "https://api.z.ai/api/paas/v4",
+          endpoint = "https://api.z.ai/api/anthropic",
           model = "glm-4.5",
-          extra_request_body = {
-            temperature = 0.6,
-            max_tokens = 98304,
-          },
-        },
-        zai_glm_air = {
-          __inherited_from = "openai",
-          api_key_name = "ZAI_API_KEY",
-          endpoint = "https://api.z.ai/api/paas/v4",
-          model = "glm-4.5-air",
           extra_request_body = {
             temperature = 0.6,
             max_tokens = 98304,
