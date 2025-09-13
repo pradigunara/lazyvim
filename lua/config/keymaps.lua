@@ -7,3 +7,5 @@ vim.keymap.set("i", "jk", "<ESC>", { silent = true })
 
 vim.keymap.set("t", "<C-\\>", "<C-\\><C-n>") -- exit to normal terminal
 vim.keymap.set("n", "<A-v>", "<C-v>") -- visual block alias
+
+require("config.crush")
