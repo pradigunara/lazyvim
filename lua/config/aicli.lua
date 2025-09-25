@@ -1,6 +1,7 @@
--- Toggle dedicated Crush CLI terminal on the right
+-- Toggle dedicated AI CLI terminal on the right
 vim.keymap.set("n", "<leader>aa", function()
-  local terminal_name = "Crush CLI"
+  local cli_program = "crush"
+  local terminal_name = "AI CLI"
   local terminal_buf = nil
   local terminal_win = nil
 
@@ -43,15 +44,15 @@ vim.keymap.set("n", "<leader>aa", function()
       -- Set buffer name to identify it
       vim.api.nvim_buf_set_name(0, terminal_name)
       -- Start CLI agent command
-      vim.api.nvim_feedkeys("crush\n", "i", false)
+      vim.api.nvim_feedkeys(cli_program .. "\n", "i", false)
     end
     vim.cmd("startinsert")
   end
-end, { desc = "Toggle Crush CLI terminal sidebar" })
+end, { desc = "Toggle AI CLI terminal sidebar" })
 
--- Send current buffer path to Crush CLI terminal
+-- Send current buffer path to AI CLI terminal
 vim.keymap.set("n", "<leader>ac", function()
-  local terminal_name = "Crush CLI"
+  local terminal_name = "AI CLI"
   local terminal_buf = nil
   local terminal_win = nil
 
@@ -93,13 +94,13 @@ vim.keymap.set("n", "<leader>ac", function()
       end)
     end
   else
-    print("Crush CLI terminal not found. Use <leader>aa to create it first.")
+    print("AI CLI terminal not found. Use <leader>aa to create it first.")
   end
-end, { desc = "Send buffer path to Crush CLI" })
+end, { desc = "Send buffer path to AI CLI" })
 
--- Send visual selection to Crush CLI terminal wrapped in triple backticks
+-- Send visual selection to AI CLI terminal wrapped in triple backticks
 vim.keymap.set("v", "<leader>ac", function()
-  local terminal_name = "Crush CLI"
+  local terminal_name = "AI CLI"
   local terminal_buf = nil
   local terminal_win = nil
 
@@ -151,6 +152,6 @@ vim.keymap.set("v", "<leader>ac", function()
       end)
     end
   else
-    print("Crush CLI terminal not found. Use <leader>aa to create it first.")
+    print("AI CLI terminal not found. Use <leader>aa to create it first.")
   end
-end, { desc = "Send visual selection to Crush CLI" })
+end, { desc = "Send visual selection to AI CLI" })
