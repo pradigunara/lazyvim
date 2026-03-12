@@ -10,7 +10,7 @@ return {
           },
           gemini = {
             env = {
-              GEMINI_MODEL = "gemini-3-pro-preview",
+              GEMINI_MODEL = "gemini-3.1-pro-preview",
             },
           },
           droid = {
@@ -30,7 +30,7 @@ return {
         },
         win = {
           split = {
-            width = 80,
+            width = 0.5,
           },
         },
       },
