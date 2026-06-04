@@ -60,6 +60,12 @@ return {
     opts = {
       provider = "codestral",
       provider_options = {
+        openai_fim_compatible = {
+          model = "mercury-edit",
+          end_point = "https://api.inceptionlabs.ai/v1/fim/completions",
+          api_key = "INCEPTION_API_KEY", -- environment variable name
+          stream = true,
+        },
         gemini = {
           model = "gemini-flash-lite-latest",
           optional = {
