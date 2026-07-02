@@ -31,3 +31,10 @@
 --   end,
 -- })
 
+vim.api.nvim_create_autocmd({ "TabEnter" }, {
+  group = vim.api.nvim_create_augroup("custom-tabenter-notab", { clear = true }),
+  pattern = { "*" },
+  callback = function()
+    vim.cmd(".tabonly")
+  end,
+})

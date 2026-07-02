@@ -5,13 +5,8 @@ return {
       nes = { enabled = false },
       cli = {
         tools = {
-          ccrcode = {
-            cmd = { "ccr", "code" },
-          },
-          gemini = {
-            env = {
-              GEMINI_MODEL = "gemini-3.1-pro-preview",
-            },
+          omp = {
+            cmd = { "omp" },
           },
           droid = {
             cmd = { "droid" },

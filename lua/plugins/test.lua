@@ -29,6 +29,22 @@ return {
     "mistweaverco/kulala.nvim",
     opts = {
       global_keymaps = true,
+      kulala_keymaps = {
+        ["Previous tab"] = {
+          "H",
+          function()
+            require("kulala.ui").show_previous_tab()
+          end,
+          mode = { "n" },
+        },
+        ["Next tab"] = {
+          "L",
+          function()
+            require("kulala.ui").show_next_tab()
+          end,
+          mode = { "n" },
+        },
+      },
     },
   },
 }
