@@ -60,23 +60,18 @@ return {
     opts = {
       provider = "codestral",
       provider_options = {
+        -- openai_fim_compatible = {
+        --   model = "mercury-edit",
+        --   end_point = "https://api.inceptionlabs.ai/v1/fim/completions",
+        --   api_key = "INCEPTION_API_KEY", -- environment variable name
+        --   stream = true,
+        -- },
         openai_fim_compatible = {
-          model = "mercury-edit",
-          end_point = "https://api.inceptionlabs.ai/v1/fim/completions",
-          api_key = "INCEPTION_API_KEY", -- environment variable name
-          stream = true,
-        },
-        gemini = {
-          model = "gemini-flash-lite-latest",
+          api_key = "DEEPSEEK_API_KEY",
+          name = "deepseek",
           optional = {
-            generationConfig = {
-              maxOutputTokens = 256,
-              -- When using `gemini-2.5-flash`, it is recommended to entirely
-              -- disable thinking for faster completion retrieval.
-              thinkingConfig = {
-                thinkingBudget = 0,
-              },
-            },
+            max_tokens = 256,
+            top_p = 0.9,
           },
         },
         codestral = {
