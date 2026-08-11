@@ -7,11 +7,26 @@ return {
         tools = {
           omp = {
             cmd = { "omp" },
+            keys = {
+              prompt = {
+                "<a-p>",
+              },
+            },
+          },
+          reasonix = {
+            cmd = { "reasonix" },
           },
           droid = {
             cmd = { "droid" },
           },
           opencode = {
+            keys = {
+              prompt = {
+                "<a-p>",
+              },
+            },
+          },
+          grok = {
             keys = {
               prompt = {
                 "<a-p>",

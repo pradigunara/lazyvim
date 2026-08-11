@@ -12,6 +12,18 @@ return {
     },
   },
   {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters = {
+        ["markdownlint-cli2"] = {
+          -- Prepend arguments to disable rule MD013 (line-length)
+          prepend_args = { "--config", '{"MD013": false}' },
+        },
+      },
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = {
