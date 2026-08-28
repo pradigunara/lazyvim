@@ -24,6 +24,19 @@ return {
     },
   },
   {
+    "ice345/markdown-table-wrap.nvim",
+    ft = { "markdown" },
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    keys = {
+      -- Toggle auto table rendering in the current buffer
+      { "<leader>uW", "<cmd>MarkdownTableToggleAutoPreview<cr>", desc = "Toggle Markdown Table Wrap" },
+    },
+    opts = {
+      -- Keeps your cursor from jumping unexpectedly
+      inline_viewport_scrolling = false,
+    },
+  },
+  {
     "neovim/nvim-lspconfig",
     opts = {
       inlay_hints = {
