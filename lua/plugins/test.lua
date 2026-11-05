@@ -26,25 +26,13 @@ return {
     },
   },
   {
-    "mistweaverco/kulala.nvim",
-    opts = {
-      global_keymaps = true,
-      kulala_keymaps = {
-        ["Previous tab"] = {
-          "H",
-          function()
-            require("kulala.ui").show_previous_tab()
-          end,
-          mode = { "n" },
-        },
-        ["Next tab"] = {
-          "L",
-          function()
-            require("kulala.ui").show_next_tab()
-          end,
-          mode = { "n" },
-        },
-      },
+    "rest-nvim/rest.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function(_, opts)
+        opts.ensure_installed = opts.ensure_installed or {}
+        table.insert(opts.ensure_installed, "http")
+      end,
     },
   },
 }
